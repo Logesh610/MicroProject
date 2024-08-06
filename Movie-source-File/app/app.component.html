@@ -1,0 +1,59 @@
+
+<div id="body1">
+    <div id="overall">
+        
+    <div id="heading" [ngClass]="myClass">
+        
+        <h1 id="H2">MOVIE REVIEW SYSTEM</h1>
+        
+    </div>
+<div id="background">
+    <form #myForm="ngForm">
+        <label for="id1" >ID</label>
+        <input type="text" id="id1" class="form-control"  name="id" #id="ngModel" ngModel required><br><br>
+        <label for="id2" >MOVIE NAME</label>
+        <input type="text" id="id2" class="form-control"  name="MovieName" #MovieName="ngModel" ngModel required><br><br>
+        <label for="id3" name="Rating">RATING</label>
+                <select id="id3" class="form-control"  name="Rating" #Rating="ngModel" ngModel required>
+                    <option value="1">★☆☆☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="5">★★★★★</option>
+                </select><br><br>
+        <label for="id4" name="Review">REVIEW</label>
+        <textarea id="id4" rows="3" class="form-control" name="Review" #Review="ngModel" ngModel ></textarea><br><br>
+      <div class="button">
+        <button  type="submit" class="submit-btn "  (click)="ClickMe(myForm.value)" >Submit</button>
+        <button  type="submit" class="Update-btn"   (click)="UpdateMe(myForm.value)">Update</button>
+        <button  type="submit" class="Delete-btn"  (click)="DeleteMe(myForm.value)">Delete</button>
+        <button  type="submit" class="Find-btn"  (click)="Find(myForm.value)">Find</button>
+        <button  type="submit" class="Find All-btn"  (click)="FindAll()">Find All</button>
+        
+    </div>
+       <!-- <div id="message" *ngIf="flag"  [ngStyle]="myStyle" ><p>{{ message }}</p></div>
+       <div id="message" *ngIf="flag1" [ngStyle]="myStyle"><p>{{ message1 }}</p></div>
+       <div id="message" *ngIf="flag2" [ngStyle]="myStyle"><p>{{ message2 }}</p></div> -->
+  </form>
+</div>
+<div id="Result">
+   
+        <h1 id="h1"><u>Review Data</u></h1>
+        <h3>{{result}}</h3>
+     
+        <div style="width: 100%;" *ngIf="flag">
+            <table width="80%" align="center" class="table table-borderd">
+             <tr><th>Id</th><th>Movie Name</th><th>Movie Rating</th><th>Movie Review</th></tr> 
+              <tr *ngFor="let emp of DetailsArr">
+                  <td> {{emp.id}} </td><td> {{emp.MovieName}} </td><td> {{emp.Rating}} </td><td>{{emp.Review}}</td>
+              </tr>
+           </table>
+           </div>
+
+
+    
+
+</div>
+</div>
+
+</div>
